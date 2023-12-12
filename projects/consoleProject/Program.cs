@@ -21,7 +21,9 @@ class Program
 
         Console.WriteLine($"Somme = {somme}");
 
-        String test = null;
+        String? test = null;
+
+        Console.WriteLine($"test = {test}");
 
     }
 

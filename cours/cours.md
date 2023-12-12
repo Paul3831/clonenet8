@@ -212,3 +212,43 @@ dotnet new webapi --use-controllers  --use-program-main -o BookStoreAPI // cree 
 Voici l'url du depot qui vous permet de recuperer les informations de cours :
 
 https://github.com/bendahmanem/ISITECH-2324-B3RPID-NET
+
+### Entity Framework Core / Entity Framework 8
+
+Entity Framework Core est un ORM (Object Relational Mapper) qui permet de manipuler des donnees relationnelles en utilisant des objets .NET.
+
+Avec EF, nous allons à partir des entités (classes) définies dans notre code, générer la base de données correspondante. Nous allons également pouvoir effectuer des opérations CRUD (Create, Read, Update, Delete) sur ces entités.
+
+Chaque étape de la génération de la base de données est appelée migration. Une migration est un ensemble de modifications apportées à la base de données. Chaque migration est associée à un numéro de version. Lorsque nous appliquons une migration, nous mettons à jour la base de données avec les modifications de la migration.
+
+Nous allons avoir besoin de trois packages NuGet pour utiliser Entity Framework Core :
+
+- pour la base de donnees sqlite : Microsoft.EntityFrameworkCore.Sqlite
+- pour EF Core : Microsoft.EntityFrameworkCore
+- pour les migrations : Microsoft.EntityFrameworkCore.Design
+
+Nous avons aussi besoin d'installer des outils additionnels pour EF Core :
+
+```bash
+dotnet tool install --global dotnet-ef
+```
+
+Pour verifier que l'installation s'est bien passee, tapez la commande suivante :
+
+```bash
+dotnet ef
+```
+
+Ces outils fonctionnent avec le paquet Microsoft.EntityFrameworkCore.Design que nous avons installé précédemment. Il est indispensable pour effectuer des migrations avec le cli dotnet.
+
+Pour effectuer une migration, il faut taper la commande suivante :
+
+```bash
+dotnet ef migrations add InitialMigration
+```
+
+Pour mettre a jour la base de donnees il faut taper la commande suivante:
+
+```bash
+dotnet ef database update
+```
